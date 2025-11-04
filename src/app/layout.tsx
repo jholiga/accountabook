@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { TASA_Orbiter, Google_Sans_Code } from "next/font/google";
+import { ClerkProvider, SignedIn, UserButton, } from "@clerk/nextjs"
 import "./globals.css";
 
 const tasaOrbiter = TASA_Orbiter({
@@ -24,12 +25,19 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body
-                className={`${tasaOrbiter.variable} ${googleSansCode.variable} antialiased`}
-            >
-                {children}
-            </body>
-        </html>
+        <ClerkProvider>
+            <html lang="en">
+                <body
+                    className={`${tasaOrbiter.variable} ${googleSansCode.variable} antialiased dark`}
+                >
+                    <div className="absolute top-0 right-0">
+                        <SignedIn>
+                            <UserButton />
+                        </SignedIn>
+                    </div>
+                    {children}
+                </body>
+            </html>
+        </ClerkProvider>
     );
 }
