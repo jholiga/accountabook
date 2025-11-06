@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { TASA_Orbiter, Google_Sans_Code } from "next/font/google";
 import { ClerkProvider, SignedIn, UserButton, } from "@clerk/nextjs"
+import { Toaster } from "@/components/ui/sonner"
 import "./globals.css";
 
 const tasaOrbiter = TASA_Orbiter({
@@ -36,6 +37,7 @@ export default function RootLayout({
                         </SignedIn>
                     </div>
                     {children}
+                    <Toaster />
                 </body>
             </html>
         </ClerkProvider>
