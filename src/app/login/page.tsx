@@ -88,13 +88,13 @@ export default function LogIn() {
                         </Button>
                     </div>
                     {!isLoading && <>
-                        <form onSubmit={onSubmitSignIn}>
+                        <form className="flex flex-col items-center" onSubmit={onSubmitSignIn}>
                             <div className="flex flex-col gap-4 text-base font-medium py-16 w-64">
                                 <Input type="email" placeholder="email" autoFocus={true} value={email} onChange={(e) => setEmail(e.target.value)} />
                                 <Input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
                             <div className="flex flex-col">
-                                <Button>login</Button>
+                                <Button className="w-16" >login</Button>
                             </div>
                         </form>
                     </>}
