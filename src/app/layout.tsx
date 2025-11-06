@@ -36,7 +36,13 @@ export default function RootLayout({
                             <UserButton />
                         </SignedIn>
                     </div>
-                    {children}
+                    <div className="flex min-h-screen items-center justify-center font-sans">
+                        <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32">
+                            <div className="flex flex-col items-center text-center">
+                                {children}
+                            </div>
+                        </main>
+                    </div>
                     <Toaster />
                 </body>
             </html>

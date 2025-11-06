@@ -23,7 +23,6 @@ export default function SignUp() {
 
     // Handle the initial submission of a new user
     async function handleSubmit() {
-        console.log('handling submit')
         if (!isLoaded) return <Spinner />
 
         // Start the sign-up process using the email and password provided by the user
@@ -79,7 +78,7 @@ export default function SignUp() {
                             return
                         }
 
-                        router.push("/")
+                        router.push("/book")
                     },
                 })
             } else {
@@ -118,7 +117,7 @@ export default function SignUp() {
         await handleSubmit()
     }
 
-    // called on each keypress of OTP
+    // called on each keypress of OTP to auto-submit when 6 digits are typed
     React.useEffect(() => {
         if (code.length > 5) {
             handleVerify()
@@ -137,7 +136,7 @@ export default function SignUp() {
                 <h3 className="text-xl pb-4">
                     enter it here to confirm your email.
                 </h3>
-                <div className={`max-h-16 ${isCodeWrong ? "outline-2 outline-offset-2 outline-red-500/75" : ""} rounded-md flex flex-col`}>
+                <div className="pb-8">
                     <InputOTP
                         maxLength={6}
                         value={code}
@@ -152,7 +151,7 @@ export default function SignUp() {
                         </InputOTPGroup>
                     </InputOTP>
                 </div>
-                <p className={`${isCodeWrong ? "" : "hidden"} pt-4 text-xs text-red-500/75`}>
+                <p className={`${isCodeWrong ? "" : "hidden"} pt-8 text-s text-red-500/75`}>
                     the code you entered is wrong. please try again some other time :(.
                 </p>
             </div >
