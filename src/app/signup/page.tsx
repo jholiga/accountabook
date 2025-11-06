@@ -72,9 +72,9 @@ export default function SignUp() {
                     navigate: async ({ session }) => {
                         if (session?.currentTask) {
                             // Check for session tasks and navigate to ui page for it.
-                            // this is a failsafe for our current config and we shouldn't ever hit this.
+                            // we don't use this in our current config but including incase it's needed in future
                             // see https://clerk.com/docs/guides/development/custom-flows/overview#session-tasks
-                            router.push("/signup/tasks")
+                            console.log(session?.currentTask)
                             return
                         }
 
@@ -165,7 +165,7 @@ export default function SignUp() {
                 <><div className="flex flex-col content-center items-center justify-center">
                     <form className="flex flex-col items-center" onSubmit={onSubmitSignUp}>
                         <div className="flex flex-col gap-4 text-base font-medium py-16 w-64">
-                            <Input value={emailAddress} onChange={(e) => setEmailAddress(e.target.value)} type="email" placeholder="email" />
+                            <Input value={emailAddress} autoFocus={true} onChange={(e) => setEmailAddress(e.target.value)} type="email" placeholder="email" />
                             <Input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="password" />
                             <Input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type="password" placeholder="confirm password" />
                         </div>
