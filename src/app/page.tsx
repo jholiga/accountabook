@@ -22,7 +22,6 @@ export default async function Home() {
                 </div>
             </>)}
             {isAuthenticated && (<>
-
                 <Button className="lg" asChild>
                     <a href="/book">go to the book</a>
                 </Button>
