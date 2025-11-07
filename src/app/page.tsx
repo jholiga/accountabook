@@ -5,7 +5,7 @@ export default async function Home() {
     const { isAuthenticated } = await auth()
 
     return (
-        <div className="content-center items-center text-center">
+        <div className="min-w-screen py-16 content-center items-center text-center">
             <h1 className="text-4xl items-center">accountabook</h1>
             <p className="text-lg py-48">
                 the simplest way to keep an eye on your family's finances.

@@ -8,7 +8,7 @@ export default function BookLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <>
+        <div className="p-8">
             {children}
             <SignedIn>
                 <div className="absolute top-0 right-0">
@@ -16,6 +16,6 @@ export default function BookLayout({
                     <LogoutButton />
                 </div>
             </SignedIn>
-        </>
+        </div>
     )
 }

@@ -75,7 +75,7 @@ export default function LogIn() {
     }
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center min-w-screen py-16">
             <h1 className="text-4xl">log in</h1>
             <div className="flex text-px-8 py-8">
                 <Button variant="link" asChild>

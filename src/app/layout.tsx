@@ -33,14 +33,14 @@ export default function RootLayout({
             <SidebarProvider>
                 <html lang="en">
                     <body
-                        className={`${tasaOrbiter.variable} ${googleSansCode.variable} antialiased dark`}
+                        className={`${tasaOrbiter.variable} ${googleSansCode.variable} font-sans antialiased dark`}
                     >
                         <SignedIn>
                             <AppSidebar />
                         </SignedIn>
-                        <main className="min-w-screen">
+                        <main>
                             <div className="flex">
-                                <div className="items-center p-16 min-w-screen">
+                                <div className="items-center">
                                     {children}
                                 </div>
                             </div>
@@ -49,6 +49,6 @@ export default function RootLayout({
                     </body>
                 </html>
             </SidebarProvider>
-        </ClerkProvider>
+        </ClerkProvider >
     );
 }

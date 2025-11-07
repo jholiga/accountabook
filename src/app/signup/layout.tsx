@@ -6,7 +6,7 @@ export default function SignUpLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center min-w-screen py-16">
             <h1 className="text-4xl">sign up</h1>
             <div className="py-8">
                 <Button variant="link" asChild>
