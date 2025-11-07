@@ -1,6 +1,5 @@
-import { SignedIn } from "@clerk/nextjs"
-import { SidebarTrigger } from "@/components/ui/sidebar"
-import { LogoutButton } from "@/components/logout-button";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/sidebar/app-sidebar";
 
 export default function BookLayout({
     children,
@@ -8,14 +7,9 @@ export default function BookLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="p-8">
+        <SidebarProvider>
+            <AppSidebar />
             {children}
-            <SignedIn>
-                <div className="absolute top-0 right-0">
-                    <SidebarTrigger />
-                    <LogoutButton />
-                </div>
-            </SignedIn>
-        </div>
+        </SidebarProvider>
     )
 }

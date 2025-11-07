@@ -6,7 +6,7 @@ export default async function Home() {
 
     return (
         <div className="min-w-screen py-16 content-center items-center text-center">
-            <h1 className="text-4xl items-center">accountabook</h1>
+            <h1 className="text-4xl items-center">havenbook</h1>
             <p className="text-lg py-48">
                 the simplest way to keep an eye on your family's finances.
             </p>

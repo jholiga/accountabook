@@ -8,7 +8,7 @@ export const LogoutButton = () => {
 
     return (
         // Clicking this button signs out a user and redirects them to the home page "/"
-
+        // TODO: move this to the side bar
         <Button variant="link" className="p-4" onClick={() => signOut({ redirectUrl: "/" })}>
             log out
         </Button>

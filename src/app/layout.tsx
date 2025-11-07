@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { TASA_Orbiter, Google_Sans_Code } from "next/font/google";
-import { ClerkProvider, SignedIn, UserButton, } from "@clerk/nextjs"
+import { ClerkProvider } from "@clerk/nextjs"
 import { Toaster } from "@/components/ui/sonner"
-import { LogoutButton } from "@/components/logout-button";
-import { SidebarTrigger, SidebarProvider } from "@/components/ui/sidebar"
 import "./globals.css";
-import { AppSidebar } from "@/components/app-sidebar";
 
 const tasaOrbiter = TASA_Orbiter({
     variable: "--font-tasa-orbiter",
@@ -19,7 +16,7 @@ const googleSansCode = Google_Sans_Code({
 
 
 export const metadata: Metadata = {
-    title: "accountabook",
+    title: "havenbook",
     description: "simple personal finances",
 };
 
@@ -30,25 +27,20 @@ export default function RootLayout({
 }>) {
     return (
         <ClerkProvider>
-            <SidebarProvider>
-                <html lang="en">
-                    <body
-                        className={`${tasaOrbiter.variable} ${googleSansCode.variable} font-sans antialiased dark`}
-                    >
-                        <SignedIn>
-                            <AppSidebar />
-                        </SignedIn>
-                        <main>
-                            <div className="flex">
-                                <div className="items-center">
-                                    {children}
-                                </div>
+            <html lang="en">
+                <body
+                    className={`${tasaOrbiter.variable} ${googleSansCode.variable} font-sans antialiased dark`}
+                >
+                    <main>
+                        <div className="flex">
+                            <div className="items-center">
+                                {children}
                             </div>
-                        </main>
-                        <Toaster />
-                    </body>
-                </html>
-            </SidebarProvider>
+                        </div>
+                    </main>
+                    <Toaster />
+                </body>
+            </html>
         </ClerkProvider >
     );
 }
