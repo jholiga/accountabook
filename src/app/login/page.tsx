@@ -75,32 +75,26 @@ export default function LogIn() {
     }
 
     return (
-        <div className="flex min-h-screen items-center justify-center font-sans">
-            <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32">
-                <div className="flex flex-col items-center text-center">
-                    <h1 className="flex text-4xl items-center">log in</h1>
-                    <div className="flex text-px-8 py-8">
-                        <Button variant="link" asChild>
-                            <a href="/">&larr; home</a>
-                        </Button>
-                        <Button variant="link" asChild>
-                            <a href="/signup">sign up</a>
-                        </Button>
+        <div className="flex flex-col items-center">
+            <h1 className="text-4xl">log in</h1>
+            <div className="flex text-px-8 py-8">
+                <Button variant="link" asChild>
+                    <a href="/">&larr; home</a>
+                </Button>
+                <Button variant="link" asChild>
+                    <a href="/signup">sign up</a>
+                </Button>
+            </div>
+            {!isLoading && <>
+                <form className="flex flex-col items-center" onSubmit={onSubmitSignIn}>
+                    <div className="flex flex-col gap-4 text-base font-medium py-16 w-64">
+                        <Input type="email" placeholder="email" autoFocus={true} value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <Input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
-                    {!isLoading && <>
-                        <form className="flex flex-col items-center" onSubmit={onSubmitSignIn}>
-                            <div className="flex flex-col gap-4 text-base font-medium py-16 w-64">
-                                <Input type="email" placeholder="email" autoFocus={true} value={email} onChange={(e) => setEmail(e.target.value)} />
-                                <Input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                            </div>
-                            <div className="flex flex-col">
-                                <Button className="w-16" >login</Button>
-                            </div>
-                        </form>
-                    </>}
-                    {isLoading && <Spinner />}
-                </div>
-            </main>
+                    <Button className="w-16" >login</Button>
+                </form>
+            </>}
+            {isLoading && <Spinner />}
         </div>
     );
 }

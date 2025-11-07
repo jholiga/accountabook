@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { TASA_Orbiter, Google_Sans_Code } from "next/font/google";
 import { ClerkProvider, SignedIn, UserButton, } from "@clerk/nextjs"
 import { Toaster } from "@/components/ui/sonner"
+import { LogoutButton } from "@/components/logout-button";
+import { SidebarTrigger, SidebarProvider } from "@/components/ui/sidebar"
 import "./globals.css";
+import { AppSidebar } from "@/components/app-sidebar";
 
 const tasaOrbiter = TASA_Orbiter({
     variable: "--font-tasa-orbiter",
@@ -27,25 +30,25 @@ export default function RootLayout({
 }>) {
     return (
         <ClerkProvider>
-            <html lang="en">
-                <body
-                    className={`${tasaOrbiter.variable} ${googleSansCode.variable} antialiased dark`}
-                >
-                    <div className="absolute top-0 right-0">
+            <SidebarProvider>
+                <html lang="en">
+                    <body
+                        className={`${tasaOrbiter.variable} ${googleSansCode.variable} antialiased dark`}
+                    >
                         <SignedIn>
-                            <UserButton />
+                            <AppSidebar />
                         </SignedIn>
-                    </div>
-                    <div className="flex min-h-screen items-center justify-center font-sans">
-                        <main className="flex min-h-screen w-full max-w-3xl flex-col items-center py-32">
-                            <div className="flex flex-col items-center text-center">
-                                {children}
+                        <main className="min-w-screen">
+                            <div className="flex">
+                                <div className="items-center p-16 min-w-screen">
+                                    {children}
+                                </div>
                             </div>
                         </main>
-                    </div>
-                    <Toaster />
-                </body>
-            </html>
+                        <Toaster />
+                    </body>
+                </html>
+            </SidebarProvider>
         </ClerkProvider>
     );
 }

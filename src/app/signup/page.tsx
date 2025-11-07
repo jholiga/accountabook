@@ -162,7 +162,7 @@ export default function SignUp() {
         <div>
             {isLoading && <Spinner />}
             {!isLoading && (
-                <><div className="flex flex-col content-center items-center justify-center">
+                <>
                     <form className="flex flex-col items-center" onSubmit={onSubmitSignUp}>
                         <div className="flex flex-col gap-4 text-base font-medium py-16 w-64">
                             <Input value={emailAddress} autoFocus={true} onChange={(e) => setEmailAddress(e.target.value)} type="email" placeholder="email" />
@@ -173,7 +173,6 @@ export default function SignUp() {
                             sign up
                         </Button>
                     </form>
-                </div>
                 </>
             )}
             <div id="clerk-captcha" />
